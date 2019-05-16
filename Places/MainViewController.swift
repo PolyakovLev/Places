@@ -10,23 +10,31 @@ import UIKit
 
 class MainViewController: UITableViewController {
     
-    let restarantArray: [String] = ["bizon", "pinzza", "sirena", "klevo", "italy"]
     
+    var places: [Place] = Place.getPlaces()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: - Table View Datasourse
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return restarantArray.count }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return places.count }
         
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell                                = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        let place                               = places[indexPath.row]
         cell.nameLable.textColor                = UIColor.red
         cell.backgroundColor                    = UIColor.blue
-        cell.nameLable.text                     = restarantArray[indexPath.row]
-        cell.imageOfPlace.layer.cornerRadius    = cell.imageOfPlace.frame.size.height / 2
+        cell.nameLable.text                     = place.name
+        cell.imageOfPlace.layer.cornerRadius    = cell.imageOfPlace.frame.size.height / 2 // TODO: why not circle?
         cell.imageOfPlace.clipsToBounds         = true
-        cell.imageOfPlace.image                 = UIImage(named: restarantArray[indexPath.row])
+        cell.locationLable.text                 = place.location
+        cell.typeLable.text                     = place.type
+        
+        if place.image == nil {
+            cell.imageOfPlace.image = UIImage(named: place.restarantImage!)
+        } else {
+            cell.imageOfPlace.image = place.image
+        }
         return cell
     }
     
@@ -42,9 +50,6 @@ class MainViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view deligate
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 100.0 }
-
     /*
      // MARK: - Navigation
      
@@ -54,5 +59,12 @@ class MainViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        guard let newPlaceVC = segue.source as? NewPlaceViewController else { return } // return data from priveus VC
+        newPlaceVC.saveNewPlace()
+        places.append(newPlaceVC.newPlace!)
+        tableView.reloadData() 
+    }
     
 }
