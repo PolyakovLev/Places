@@ -71,6 +71,7 @@
                                     <outlet property="TypeLable" destination="k81-7L-Mdi" id="V5E-jJ-GKt"/>
                                     <outlet property="imageOfPlace" destination="a4h-qx-OqA" id="Att-sP-Ef2"/>
                                     <outlet property="nameLable" destination="hnK-Oe-GPZ" id="fQb-9g-cx5"/>
+                                    <segue destination="GDs-sH-RVC" kind="show" identifier="showDetail" id="G8c-JQ-CKM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,7 +80,7 @@
                             <outlet property="delegate" destination="N13-Vc-ab9" id="yf7-Vy-rXy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Places" id="MZg-z8-KZI">
+                    <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="MZg-z8-KZI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xHO-7d-fna">
                             <connections>
                                 <segue destination="kGZ-f2-Lf3" kind="presentation" modalTransitionStyle="crossDissolve" id="p29-Pa-S5x"/>
@@ -111,7 +112,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="EWB-6Q-Jdn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="254.50000000000006"/>
+                                                    <rect key="frame" x="0.0" y="-5.6843418860808015e-14" width="375" height="254.50000000000006"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -239,7 +240,7 @@
                             <outlet property="delegate" destination="GDs-sH-RVC" id="a6p-z0-xYg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Place" id="cOR-rX-6fg">
+                    <navigationItem key="navigationItem" title="New Place" largeTitleDisplayMode="always" id="cOR-rX-6fg">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="drE-Pc-PUL">
                             <connections>
                                 <action selector="cancelAction:" destination="GDs-sH-RVC" id="rhR-6x-bai"/>
@@ -262,14 +263,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjX-3w-udV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="G0D-0g-14W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1253.5999999999999" y="35.532233883058474"/>
+            <point key="canvasLocation" x="678" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YI7-w7-gcd">
             <objects>
                 <navigationController id="dym-1w-cSO" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7XO-ez-l1a">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7XO-ez-l1a">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -296,10 +297,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekV-LT-xff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="36"/>
+            <point key="canvasLocation" x="678" y="-730"/>
         </scene>
     </scenes>
     <resources>
         <image name="Photo" width="195" height="196"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="G8c-JQ-CKM"/>
+    </inferredMetricsTieBreakers>
 </document>
