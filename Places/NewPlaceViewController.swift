@@ -10,7 +10,6 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
 
-    var newPlace: Place?
     var imageIsChaneged = false
     
     @IBOutlet weak var placeImage:      UIImageView!
@@ -19,14 +18,16 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var placeType:       UITextField!
     @IBOutlet weak var saveButtom:      UIBarButtonItem!
     
-    let cameraIcon  = #imageLiteral(resourceName: "camera")
+    let cameraIcon  = #imageLiteral(resourceName: "camera") 
     let photoIcon   = #imageLiteral(resourceName: "photo")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        DispatchQueue.main.async { // TODO: read about DispatchQueue
+//            self.newPlace.savePlaces()
+//        }
         tableView.tableFooterView   = UIView() // enable horizontal lines under static rows
         saveButtom.isEnabled        = false
-        
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged) // check content in Name field
     }
     
@@ -71,11 +72,13 @@ class NewPlaceViewController: UITableViewController {
         } else {
             image = #imageLiteral(resourceName: "LaunchScreen")
         }
-        newPlace = Place(name:              placeName.text!,
-                         location:          placeLocation.text,
-                         type:              placeType.text,
-                         image:             image,
-                         restarantImage:    nil)
+        let imageData = image?.pngData()
+        let newPlace = Place(name: placeName.text!,
+                             location: placeLocation.text,
+                             type: placeType.text,
+                             imageData: imageData)
+        StorageManager.saveObject(newPlace)
+    
     }
     
     @IBAction func cancelAction(_ sender: Any) {

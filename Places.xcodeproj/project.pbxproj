@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37020DA7228DF75F00F0076B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37020DA6228DF75F00F0076B /* StorageManager.swift */; };
+		37020DA9228E04AC00F0076B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37020DA8228E04AC00F0076B /* Assets.xcassets */; };
 		376C6743228B0143009E7700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376C6742228B0143009E7700 /* AppDelegate.swift */; };
 		376C6748228B0143009E7700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376C6746228B0143009E7700 /* Main.storyboard */; };
 		376C674D228B0144009E7700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376C674B228B0144009E7700 /* LaunchScreen.storyboard */; };
 		376C6755228B0E78009E7700 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376C6754228B0E78009E7700 /* MainViewController.swift */; };
-		376C6757228C5736009E7700 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376C6756228C5736009E7700 /* Assets.xcassets */; };
 		3790F720228C6E5A0085374A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3790F71F228C6E5A0085374A /* CustomTableViewCell.swift */; };
 		3790F722228C78320085374A /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3790F721228C78320085374A /* PlaceModel.swift */; };
 		3790F724228D69FC0085374A /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3790F723228D69FC0085374A /* NewPlaceViewController.swift */; };
@@ -19,13 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37020DA6228DF75F00F0076B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		37020DA8228E04AC00F0076B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		376C673F228B0143009E7700 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		376C6742228B0143009E7700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		376C6747228B0143009E7700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		376C674C228B0144009E7700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		376C674E228B0144009E7700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		376C6754228B0E78009E7700 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		376C6756228C5736009E7700 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		3790F71F228C6E5A0085374A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3790F721228C78320085374A /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		3790F723228D69FC0085374A /* NewPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
@@ -70,10 +72,11 @@
 				376C6742228B0143009E7700 /* AppDelegate.swift */,
 				376C6754228B0E78009E7700 /* MainViewController.swift */,
 				3790F721228C78320085374A /* PlaceModel.swift */,
+				37020DA6228DF75F00F0076B /* StorageManager.swift */,
 				3790F71F228C6E5A0085374A /* CustomTableViewCell.swift */,
+				37020DA8228E04AC00F0076B /* Assets.xcassets */,
 				376C6746228B0143009E7700 /* Main.storyboard */,
 				3790F723228D69FC0085374A /* NewPlaceViewController.swift */,
-				376C6756228C5736009E7700 /* Assets.xcassets */,
 				376C674B228B0144009E7700 /* LaunchScreen.storyboard */,
 				376C674E228B0144009E7700 /* Info.plist */,
 			);
@@ -86,7 +89,6 @@
 				E2DFF5226BF2003B23CA5B14 /* Pods-Places.debug.xcconfig */,
 				4A256DAC936F8EFD5A4F5CBD /* Pods-Places.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -160,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				376C674D228B0144009E7700 /* LaunchScreen.storyboard in Resources */,
-				376C6757228C5736009E7700 /* Assets.xcassets in Resources */,
+				37020DA9228E04AC00F0076B /* Assets.xcassets in Resources */,
 				376C6748228B0143009E7700 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +226,7 @@
 				3790F720228C6E5A0085374A /* CustomTableViewCell.swift in Sources */,
 				3790F722228C78320085374A /* PlaceModel.swift in Sources */,
 				3790F724228D69FC0085374A /* NewPlaceViewController.swift in Sources */,
+				37020DA7228DF75F00F0076B /* StorageManager.swift in Sources */,
 				376C6743228B0143009E7700 /* AppDelegate.swift in Sources */,
 				376C6755228B0E78009E7700 /* MainViewController.swift in Sources */,
 			);
