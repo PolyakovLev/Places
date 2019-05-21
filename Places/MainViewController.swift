@@ -58,8 +58,6 @@ class MainViewController: UIViewController,  UITableViewDataSource, UITableViewD
         cell.locationLable.text                 = place.location
         cell.typeLable.text                     = place.type
         cell.imageOfPlace.image                 = UIImage(data: place.imageData!)
-        cell.imageOfPlace.layer.cornerRadius    = cell.imageOfPlace.frame.size.height / 2
-        cell.imageOfPlace.clipsToBounds         = true
         return cell
     }
     

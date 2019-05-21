@@ -10,7 +10,7 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
 
-    var currentPlace: Place?
+    var currentPlace: Place!
     var imageIsChaneged  = false
     
     @IBOutlet weak var placeImage:      UIImageView!
@@ -18,6 +18,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var placeLocation:   UITextField!
     @IBOutlet weak var placeType:       UITextField!
     @IBOutlet weak var saveButtom:      UIBarButtonItem!
+    @IBOutlet weak var ratingControl: RatingControl!
     
     let cameraIcon  = #imageLiteral(resourceName: "camera") 
     let photoIcon   = #imageLiteral(resourceName: "photo")
@@ -78,7 +79,8 @@ class NewPlaceViewController: UITableViewController {
         let newPlace    = Place(name: placeName.text!,
                                 location: placeLocation.text,
                                 type: placeType.text,
-                                imageData: imageData)
+                                imageData: imageData,
+                                rating: Double(ratingControl.rating))
         
         if currentPlace != nil {
             try! realm.write {
@@ -86,6 +88,7 @@ class NewPlaceViewController: UITableViewController {
                 currentPlace?.location  = newPlace.location
                 currentPlace?.type      = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating    = newPlace.rating
             }
         } else {
             StorageManager.saveObject(newPlace)
@@ -102,6 +105,7 @@ class NewPlaceViewController: UITableViewController {
             placeLocation.text          = currentPlace?.location
             placeImage.image            = image
             placeImage.contentMode      = .scaleAspectFill
+            ratingControl.rating        = Int(currentPlace.rating)
         }
     }
     
