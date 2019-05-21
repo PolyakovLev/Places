@@ -72,7 +72,7 @@ class NewPlaceViewController: UITableViewController {
         if imageIsChaneged {
             image = placeImage.image
         } else {
-            image = #imageLiteral(resourceName: "LaunchScreen")
+            image = #imageLiteral(resourceName: "depositphotos_85942580-stock-illustration-angry-donkey")
         }
         let imageData   = image?.pngData()
         let newPlace    = Place(name: placeName.text!,
@@ -112,7 +112,6 @@ class NewPlaceViewController: UITableViewController {
         navigationItem.leftBarButtonItem    = nil
         title                               = currentPlace?.name
         saveButtom.isEnabled                = true
-        
     }
     
     @IBAction func cancelAction(_ sender: Any) {

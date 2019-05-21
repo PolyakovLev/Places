@@ -9,7 +9,8 @@
 import RealmSwift
 
 class Place: Object {
-    @objc dynamic var name = ""
+    @objc dynamic var name =          ""
+    @objc dynamic var data =          Date()
     @objc dynamic var location:       String?
     @objc dynamic var type:           String?
     @objc dynamic var imageData:      Data?
