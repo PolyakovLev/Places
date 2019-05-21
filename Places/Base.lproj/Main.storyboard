@@ -157,13 +157,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="139.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-bh-JzD" customClass="RatingControl" customModule="Places" customModuleProvider="target">
-                                                    <rect key="frame" x="87" y="14" width="200" height="110"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="40" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-bh-JzD" customClass="RatingControl" customModule="Places" customModuleProvider="target">
+                                                    <rect key="frame" x="47.666666666666657" y="50" width="280" height="40"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ZC2-bh-JzD" firstAttribute="centerX" secondItem="W53-r1-nLG" secondAttribute="centerX" id="TJo-Fy-TV2"/>
-                                                <constraint firstItem="ZC2-bh-JzD" firstAttribute="centerY" secondItem="W53-r1-nLG" secondAttribute="centerY" id="g5G-EO-ZJy"/>
+                                                <constraint firstItem="ZC2-bh-JzD" firstAttribute="centerY" secondItem="W53-r1-nLG" secondAttribute="centerY" id="Oje-uQ-evv"/>
+                                                <constraint firstItem="ZC2-bh-JzD" firstAttribute="centerX" secondItem="W53-r1-nLG" secondAttribute="centerX" id="rou-O7-i4y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -219,7 +224,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sCo-LP-HJW">
-                                <rect key="frame" x="0.0" y="117" width="375" height="661"/>
+                                <rect key="frame" x="0.0" y="117" width="375" height="695"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="11" reuseIdentifier="Cell" rowHeight="100" id="XQV-0m-5RY" customClass="CustomTableViewCell" customModule="Places" customModuleProvider="target">
@@ -286,7 +291,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sCo-LP-HJW" firstAttribute="bottom" secondItem="s0w-xG-giS" secondAttribute="bottom" id="91W-PV-PBZ"/>
+                            <constraint firstItem="sCo-LP-HJW" firstAttribute="bottom" secondItem="gDP-fS-jcD" secondAttribute="bottom" id="91W-PV-PBZ"/>
                             <constraint firstItem="sCo-LP-HJW" firstAttribute="top" secondItem="FWk-Ly-BEq" secondAttribute="bottom" constant="1" id="HyI-r6-j84"/>
                             <constraint firstItem="sCo-LP-HJW" firstAttribute="leading" secondItem="s0w-xG-giS" secondAttribute="leading" id="Pt7-WZ-3cT"/>
                             <constraint firstItem="FWk-Ly-BEq" firstAttribute="leading" secondItem="s0w-xG-giS" secondAttribute="leading" id="Sn5-4n-bhS"/>
