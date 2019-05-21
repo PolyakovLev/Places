@@ -22,6 +22,10 @@ class RatingControl: UIStackView {
     }
     // MARK: Button action
     
+    @objc func etingButtonTaped(button: UIButton) {
+    
+    }
+    
     // MARK: Private methods
     
     private func setupButtons() {
