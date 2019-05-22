@@ -19,6 +19,13 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLable:       UILabel!
     @IBOutlet weak var locationLable:   UILabel!
     @IBOutlet weak var typeLable:       UILabel!
-
+    @IBOutlet weak var routeButton: UIButton!
+    
+    var navigationButtonHandler: (()->())?
+    
+    @IBAction func routeButtonAction(_ sender: UIButton) {
+        self.navigationButtonHandler?()
+    }
+    
     
 }

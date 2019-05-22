@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class MainViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     
     private var places:             Results<Place>! // autoupload container (realtime)
     private var filtredPlaces:      Results<Place>!
@@ -52,12 +52,33 @@ class MainViewController: UIViewController,  UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell                                = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         let place                               =  isFiltering == true ? filtredPlaces[indexPath.row] : places[indexPath.row]
+       
         
         cell.nameLable.textColor                = UIColor.red
         cell.nameLable.text                     = place.name
         cell.locationLable.text                 = place.location
         cell.typeLable.text                     = place.type
         cell.imageOfPlace.image                 = UIImage(data: place.imageData!)
+        
+        guard let isLocationAvalible = cell.locationLable.text?.isEmpty else { return cell } // QUESTION: is it good practise?
+        if isLocationAvalible {
+            cell.routeButton.setImage( #imageLiteral(resourceName: "unvalibleRoute"), for: .normal)
+            cell.routeButton.isEnabled = false
+            
+        } else {
+            cell.routeButton.setImage( #imageLiteral(resourceName: "avalibleRoute"), for: .normal)
+            cell.routeButton.isEnabled = true
+        }
+
+        cell.navigationButtonHandler = {[weak self] in // QUESTION
+            if let mapVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "showMap") as? MapViewController {
+                mapVC.place = self!.places[indexPath.row]
+                self?.navigationController?.pushViewController(mapVC, animated: true)
+            }
+        }
+        
+       
+        
         return cell
     }
     
@@ -94,7 +115,7 @@ class MainViewController: UIViewController,  UITableViewDataSource, UITableViewD
     
     
 //      MARK: - Navigation
-     
+
 //     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "showDetail" {
 //            guard let indexPath     = tableView.indexPathForSelectedRow else { return }

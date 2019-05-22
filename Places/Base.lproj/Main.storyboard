@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="678" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="mhC-9H-oWS">
             <objects>
-                <viewController id="A5R-50-4mF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showMap" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A5R-50-4mF" customClass="MapViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyu-oW-K3b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,18 +217,35 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="W6o-qW-Dfl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhY-px-6Uy">
+                                <rect key="frame" x="325" y="64" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Ser-df-oL3"/>
+                                    <constraint firstAttribute="height" constant="30" id="lVk-cP-J7I"/>
+                                </constraints>
+                                <state key="normal" image="closeIcon"/>
+                                <connections>
+                                    <segue destination="CK1-fV-DqO" kind="unwind" unwindAction="unwindSegue:" id="oJy-aH-cl6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W6o-qW-Dfl" firstAttribute="leading" secondItem="vTl-OM-zsV" secondAttribute="leading" id="BFb-pa-Qjq"/>
+                            <constraint firstItem="HhY-px-6Uy" firstAttribute="top" secondItem="vTl-OM-zsV" secondAttribute="top" constant="20" id="cLR-Dt-AlW"/>
                             <constraint firstAttribute="bottom" secondItem="W6o-qW-Dfl" secondAttribute="bottom" id="dXK-Ot-T4I"/>
                             <constraint firstItem="W6o-qW-Dfl" firstAttribute="top" secondItem="fyu-oW-K3b" secondAttribute="top" id="ebT-SI-nN9"/>
                             <constraint firstItem="W6o-qW-Dfl" firstAttribute="trailing" secondItem="vTl-OM-zsV" secondAttribute="trailing" id="fjj-1V-NZg"/>
+                            <constraint firstItem="vTl-OM-zsV" firstAttribute="trailing" secondItem="HhY-px-6Uy" secondAttribute="trailing" constant="20" id="tXB-H4-9Yo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vTl-OM-zsV"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="W6o-qW-Dfl" id="4GQ-xM-v8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmT-ts-wTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CK1-fV-DqO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-98" y="821"/>
         </scene>
@@ -291,14 +308,14 @@
                                                         <constraint firstAttribute="height" constant="70" id="Ybl-7C-q95"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DT-Zi-zaw">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DT-Zi-zaw">
                                                     <rect key="frame" x="318" y="25" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="675-7C-lbT"/>
                                                         <constraint firstAttribute="height" constant="50" id="qFe-jz-Ev3"/>
                                                     </constraints>
                                                     <connections>
-                                                        <segue destination="A5R-50-4mF" kind="presentation" id="Nsu-K2-ICO"/>
+                                                        <action selector="routeButtonAction:" destination="XQV-0m-5RY" eventType="touchUpInside" id="deI-aa-nhE"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -320,6 +337,7 @@
                                             <outlet property="imageOfPlace" destination="R3g-td-FR1" id="ePq-O7-unF"/>
                                             <outlet property="locationLable" destination="xgs-cU-Wf1" id="kya-M0-Vbe"/>
                                             <outlet property="nameLable" destination="qBR-1N-yTJ" id="eHv-J9-sjy"/>
+                                            <outlet property="routeButton" destination="6DT-Zi-zaw" id="TlH-pg-iyh"/>
                                             <outlet property="typeLable" destination="dG0-Ra-wLf" id="cGX-um-52Q"/>
                                         </connections>
                                     </tableViewCell>
@@ -402,5 +420,6 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <image name="closeIcon" width="25" height="25"/>
     </resources>
 </document>
