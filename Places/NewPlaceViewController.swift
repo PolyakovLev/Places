@@ -32,7 +32,7 @@ class NewPlaceViewController: UITableViewController {
         tableView.tableFooterView   = UIView() // enable horizontal lines under static rows
         saveButtom.isEnabled        = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged) // check content in Name field
-        setupEditiScreen()
+        setupEditScreen()
     }
     
     // MARK: - Table View Deligate
@@ -95,7 +95,7 @@ class NewPlaceViewController: UITableViewController {
         }
     }
     
-    private func setupEditiScreen() {
+    private func setupEditScreen() {
         if currentPlace != nil {
             setupNavigationBar()
             imageIsChaneged             = true

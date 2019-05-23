@@ -228,10 +228,23 @@
                                     <segue destination="CK1-fV-DqO" kind="unwind" unwindAction="unwindSegue:" id="oJy-aH-cl6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-O1-pmm">
+                                <rect key="frame" x="285" y="688" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4Px-Fr-8NZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="Utt-ZX-W9n"/>
+                                </constraints>
+                                <state key="normal" image="locationIcon"/>
+                                <connections>
+                                    <action selector="myLocationButton:" destination="A5R-50-4mF" eventType="touchUpInside" id="SdD-Zl-JN2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W6o-qW-Dfl" firstAttribute="leading" secondItem="vTl-OM-zsV" secondAttribute="leading" id="BFb-pa-Qjq"/>
+                            <constraint firstItem="vTl-OM-zsV" firstAttribute="bottom" secondItem="zQy-O1-pmm" secondAttribute="bottom" constant="40" id="DIe-Q9-7Hs"/>
+                            <constraint firstItem="vTl-OM-zsV" firstAttribute="trailing" secondItem="zQy-O1-pmm" secondAttribute="trailing" constant="40" id="DwL-Cx-Iqq"/>
                             <constraint firstItem="HhY-px-6Uy" firstAttribute="top" secondItem="vTl-OM-zsV" secondAttribute="top" constant="20" id="cLR-Dt-AlW"/>
                             <constraint firstAttribute="bottom" secondItem="W6o-qW-Dfl" secondAttribute="bottom" id="dXK-Ot-T4I"/>
                             <constraint firstItem="W6o-qW-Dfl" firstAttribute="top" secondItem="fyu-oW-K3b" secondAttribute="top" id="ebT-SI-nN9"/>
@@ -421,5 +434,6 @@
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
         <image name="closeIcon" width="25" height="25"/>
+        <image name="locationIcon" width="33.333332061767578" height="33.333332061767578"/>
     </resources>
 </document>

@@ -11,11 +11,12 @@ import RealmSwift
 class Place: Object {
     @objc dynamic var name          = ""
     @objc dynamic var data          = Date()
+    @objc dynamic var rating        = 0.0
     @objc dynamic var location:       String?
     @objc dynamic var type:           String?
     @objc dynamic var imageData:      Data?
-    @objc dynamic var rating        = 0.0
     
+
     convenience init(name: String, location: String?, type: String?, imageData: Data?, rating: Double) {
         self.init() // set default values
         self.name       = name

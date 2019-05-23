@@ -50,7 +50,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell                                = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        let cell                                = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                                                for: indexPath) as! CustomTableViewCell
         let place                               =  isFiltering == true ? filtredPlaces[indexPath.row] : places[indexPath.row]
        
         
