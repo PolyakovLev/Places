@@ -77,9 +77,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 self?.navigationController?.pushViewController(mapVC, animated: true)
             }
         }
-        
-       
-        
         return cell
     }
     
@@ -118,13 +115,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //      MARK: - Navigation
 
 //     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showDetail" {
-//            guard let indexPath     = tableView.indexPathForSelectedRow else { return }
-//            let place               = places[indexPath.row]
-//            let newPlaceVC          = segue.destination as! NewPlaceViewController
-//            newPlaceVC.currentPlace = place
-//            
-//        }
+//        print("sfdddff  dsf ds \(segue.identifier)")
+//        guard let identifier = segue.identifier else { return }
+//        print("identyfire done : \(identifier)")
+//        guard let mapVC = segue.destination as? MapViewController else { return }
+//        print("mapVC done)")
+//        
+//        mapVC.identyfire = identifier
+//        print("prepare \(identifier)")
+//        
+//        
 //     }
      
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {

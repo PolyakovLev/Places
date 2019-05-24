@@ -121,6 +121,13 @@ class NewPlaceViewController: UITableViewController {
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        guard let mapVC = segue.destination as? MapViewController else { return }
+        mapVC.mapVCDelegate = self
+        mapVC.identyfire = identifier        
+    }
 }
 
 // MARK: - Text field delegate
@@ -157,4 +164,13 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
         imageIsChaneged             = true
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension NewPlaceViewController: mapViewControllerDelegate {
+    
+    func getAddress(_ addres: String?) {
+        placeLocation.text = addres
+    }
+    
+    
 }
