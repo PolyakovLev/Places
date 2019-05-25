@@ -26,6 +26,4 @@ class CustomTableViewCell: UITableViewCell {
     @IBAction func routeButtonAction(_ sender: UIButton) {
         self.navigationButtonHandler?()
     }
-    
-    
 }

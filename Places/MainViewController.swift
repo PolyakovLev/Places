@@ -28,7 +28,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var reversedSortingButton: UIBarButtonItem!
     
   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

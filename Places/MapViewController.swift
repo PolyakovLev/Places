@@ -25,13 +25,17 @@ class MapViewController: UIViewController {
     var mapVCDelegate:              mapViewControllerDelegate?
     var place:                      Place!
     var placeCoordinates:           CLLocationCoordinate2D?
+    var previousLocation:           CLLocation? {
+        didSet {
+            startTrackingUserLocation()
+        }
+    }
     
-    var anotationIdentifier         = "anotationIdentifier"
-    let locationManager             = CLLocationManager()
-    let regionInMeters              = 10_00.0
-    var identyfire: String?         = nil
-    
-    
+    let locationManager                 = CLLocationManager()
+    let regionInMeters                  = 1000.0
+    var anotationIdentifier             = "anotationIdentifier"
+    var identyfire: String?             = nil
+    var derectionsArray: [MKDirections] = []
     
     
     
@@ -63,6 +67,13 @@ class MapViewController: UIViewController {
             addressLable.isHidden   = true
             doneButton.isHidden     = true
         }
+    }
+    
+    private func resetMapView(withNew derections: MKDirections) {
+        mapView.removeOverlays(mapView.overlays)
+        derectionsArray.append(derections)
+        let _ = derectionsArray.map {$0.cancel()}
+        derectionsArray.removeAll()
     }
     
     private func setupPlacemark() {
@@ -155,7 +166,18 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func gerCenterLocation(for mapView: MKMapView) -> CLLocation {
+    private func startTrackingUserLocation() {
+        guard let previousLocation = previousLocation else { return }
+        let center = getCenterLocation(for: mapView)
+        guard center.distance(from: previousLocation)  > 50 else { return }
+        self.previousLocation = center
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) { 
+            self.showUserLocation()
+        }
+    }
+    
+    private func getCenterLocation(for mapView: MKMapView) -> CLLocation {
         let latitude    = mapView.centerCoordinate.latitude
         let longetude   = mapView.centerCoordinate.longitude
         
@@ -165,8 +187,11 @@ class MapViewController: UIViewController {
     private func getDirection() {
         guard let location = locationManager.location?.coordinate else { 
             errorAlert(text: "Sorry cannot find you")
-            return 
+            return
         }
+        
+        locationManager.startUpdatingLocation()
+        previousLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         
         guard let request = getDirectionReguest(from: location) else {
             errorAlert(text: "destination not found")
@@ -174,6 +199,7 @@ class MapViewController: UIViewController {
         }
         
         let derections = MKDirections(request: request)
+        resetMapView(withNew: derections)
         
         derections.calculate { (responce, error) in
             if let error = error {
@@ -184,7 +210,7 @@ class MapViewController: UIViewController {
                 self.errorAlert(text: "direction is not avalible")
                 return
             }
-            
+                        
             for route in responce.routes {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
@@ -217,7 +243,7 @@ class MapViewController: UIViewController {
     }
 }
 
-
+// MARK: - Extensions
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -240,9 +266,15 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        let center = gerCenterLocation(for: mapView)
+        let center = getCenterLocation(for: mapView)
         let geocoder = CLGeocoder()
         
+        if identyfire != "getAddress" && previousLocation != nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { 
+                self.showUserLocation()
+            }
+        }
+        geocoder.cancelGeocode()
         geocoder.reverseGeocodeLocation(center) { (placemarks, error) in
             if let error = error {
                 print(error)
