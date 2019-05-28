@@ -30,9 +30,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        places = realm.objects(Place.self)
-        
+
+        self.places = realm.objects(Place.self)
         searchController.obscuresBackgroundDuringPresentation   = false // to interact as main
         searchController.searchResultsUpdater                   = self // получатель сам класс
         searchController.searchBar.placeholder                  = "Search"

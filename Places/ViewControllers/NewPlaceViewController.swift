@@ -73,7 +73,7 @@ class NewPlaceViewController: UITableViewController {
         if imageIsChaneged {
             image = placeImage.image
         } else {
-            image = #imageLiteral(resourceName: "depositphotos_85942580-stock-illustration-angry-donkey")
+            image = #imageLiteral(resourceName: "lounch")
         }
         let imageData   = image?.pngData()
         let newPlace    = Place(name: placeName.text!,
