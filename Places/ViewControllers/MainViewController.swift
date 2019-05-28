@@ -79,6 +79,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -92,6 +93,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? { // delete row 
         let place           =  isFiltering == true ? filtredPlaces[indexPath.row] : places[indexPath.row]
+       
         
         let deleteAction    = UITableViewRowAction(style: .default, title: "Delete") { (_, _) in
             StorageManager.deleteObject(place)
@@ -124,7 +126,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        
 //        
 //     }
-     
+    
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         guard let newPlaceVC = segue.source as? NewPlaceViewController else { return } // return data from priveus VC
         newPlaceVC.savePlace()

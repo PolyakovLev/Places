@@ -142,7 +142,7 @@ class MapManager {
     }
     
     func getDirectionReguest(from coordinates: CLLocationCoordinate2D) -> MKDirections.Request? {
-        
+    
         guard let distanationCoordinates    = placeCoordinates else { return nil }
         let startLocation                   = MKPlacemark(coordinate: coordinates)
         let destination                     = MKPlacemark(coordinate: distanationCoordinates)
@@ -150,7 +150,7 @@ class MapManager {
         request.source                      = MKMapItem(placemark: startLocation)
         request.destination                 = MKMapItem(placemark: destination)
         request.transportType               = .automobile
-        request.requestsAlternateRoutes     = true
+        request.requestsAlternateRoutes     = false
         
         return request
     }

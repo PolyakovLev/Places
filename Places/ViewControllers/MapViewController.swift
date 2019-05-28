@@ -24,7 +24,7 @@ class MapViewController: UIViewController {
     var identyfire: String?             = nil
     var anotationIdentifier             = "anotationIdentifier"
     
-    let mapManager = MapManager()
+    let mapManager                      = MapManager()
     var mapVCDelegate:              mapViewControllerDelegate?
     var place:                      Place!
     var previousLocation:           CLLocation? {
@@ -110,7 +110,7 @@ extension MapViewController: MKMapViewDelegate {
         
         if identyfire != "getAddress" && previousLocation != nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) { 
-                self.mapManager.showUserLocation(mapView: mapView)
+//                self.mapManager.showUserLocation(mapView: mapView)
 //                print("mapView")
             }
         }

@@ -171,7 +171,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="40" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-bh-JzD" customClass="RatingControl" customModule="Places" customModuleProvider="target">
-                                                    <rect key="frame" x="47.666666666666657" y="50" width="280" height="40"/>
+                                                    <rect key="frame" x="71.666666666666686" y="50" width="232" height="40"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                             <integer key="value" value="5"/>
@@ -217,7 +217,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjX-3w-udV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="G0D-0g-14W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="677.60000000000002" y="35.467980295566505"/>
+            <point key="canvasLocation" x="793" y="35"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="mhC-9H-oWS">
@@ -325,7 +325,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmT-ts-wTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CK1-fV-DqO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-98.400000000000006" y="820.93596059113304"/>
+            <point key="canvasLocation" x="1818" y="35"/>
         </scene>
         <!--My Places-->
         <scene sceneID="MBa-ci-hZe">
@@ -492,7 +492,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekV-LT-xff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="-730"/>
+            <point key="canvasLocation" x="793" y="-728"/>
         </scene>
     </scenes>
     <resources>
